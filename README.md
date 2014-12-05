@@ -17,7 +17,6 @@ $ sudo yum install ignsdk-devtools
 ~~~
 ignsdk -p /usr/share/ign-sdk/test/calculator.ign
 ~~~
-
 ##Membuat Aplikasi di IGNSDK
 Skrip IGN SDK Devtools membantu Anda untuk mulai membuat aplikasi berbasis IGN SDK dengan
 lebih mudah. Selain itu, skrip ini dapat memaketkan aplikasi buatan Anda kedalam bentuk berkas **.deb**
@@ -71,7 +70,6 @@ Anda bisa menjalankan aplikasi tersebut dengan perintah:
 ~~~
 $ ignsdk -p ~/IGNSDK-APP/aplikasi-keren.ign
 ~~~
-
 ##Debugging
 Saat proses development proses debugging ini memiliki peranan sangat penting untuk mengetahui proses yang dilakukan oleh aplikasi ignsdk yang sedang kita jalankan. Di IGNSDK debugging dibagi menjadi dua mode, local dubugging dan remote debugging.
 
@@ -85,9 +83,9 @@ $ ignsdk -d -p ~/IGNSDK-APP/aplikasi-keren.ign
 ~~~json
 {
     "config" : {
-		"debug" : true,
-		"websecurity" : true,
-		"name" : "Aplikasi Keren"
+    "debug" : true,
+    "websecurity" : true,
+    "name" : "Aplikasi Keren"
     }
 }
 ~~~
@@ -98,7 +96,6 @@ Remote debugging memungkinkan kita melakukan debug mode IGNSDK di browser atau d
 $ ignsdk -d -r 8080 ~/IGNSDK-APP/aplikasi-keren.ign
 ~~~
 Akses debugging mode lewat browser `http://ip-target:port` contoh `http://127.0.0.1:8080`
-
 ##Memaketkan Aplikasi
 Aplikasi berbasis IGN SDK dapat didistribusikan dengan berbagai cara. Cara yang paling mudah dan
 ringkas adalah dengan memaketkannya dalam bentuk **.deb** atau **.rpm**. Skrip yang akan digunakan
