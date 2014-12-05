@@ -3,12 +3,12 @@ Paket IGN SDK sudah dimasukkan secara default di IGOS Nusantara D9.1. Jika belum
 sistem Anda, ikuti langkah-langkah berikut untuk memasang IGN SDK.
 
 1. Buka aplikasi Terminal
-2. Pasang paket bernama “ignsdk”. Paket ini berisi binari peluncur aplikasi yang digunakan untuk
+2. Pasang paket bernama `ignsdk`. Paket ini berisi binari peluncur aplikasi yang digunakan untuk
 menjalankan aplikasi berbasis IGN SDK.
 ~~~
 $ sudo yum install ignsdk
 ~~~
-3. (Opsional) Pasang paket bernama “ignsdk-devtools”. Paket ini berisi alat bantu untuk membuat
+3. (Opsional) Pasang paket bernama `ignsdk-devtools`. Paket ini berisi alat bantu untuk membuat
 dan memaketkan aplikasi berbasis IGN SDK.
 ~~~
 $ sudo yum install ignsdk-devtools
@@ -17,6 +17,7 @@ $ sudo yum install ignsdk-devtools
 ~~~
 ignsdk -p /usr/share/ign-sdk/test/calculator.ign
 ~~~
+
 ##Membuat Aplikasi di IGNSDK
 Skrip IGN SDK Devtools membantu Anda untuk mulai membuat aplikasi berbasis IGN SDK dengan
 lebih mudah. Selain itu, skrip ini dapat memaketkan aplikasi buatan Anda kedalam bentuk berkas **.deb**
@@ -70,6 +71,7 @@ Anda bisa menjalankan aplikasi tersebut dengan perintah:
 ~~~
 $ ignsdk -p ~/IGNSDK-APP/aplikasi-keren.ign
 ~~~
+
 ##Debugging
 Saat proses development proses debugging ini memiliki peranan sangat penting untuk mengetahui proses yang dilakukan oleh aplikasi ignsdk yang sedang kita jalankan. Di IGNSDK debugging dibagi menjadi dua mode, local dubugging dan remote debugging.
 
@@ -90,7 +92,7 @@ $ ignsdk -d -p ~/IGNSDK-APP/aplikasi-keren.ign
 }
 ~~~
 
-<center>![Local Debugging](https://github.com/ignsdk/doc-id/raw/master/img/gb1.png)</center>
+![Local Debugging](https://github.com/ignsdk/doc-id/raw/master/img/gb1.png)
 
 ###1.2 Remote Debugging
 Remote debugging memungkinkan kita melakukan debug mode IGNSDK di browser atau device lain. Untuk mengaktifkan remote debugging cukup menambahkan parameter `-r <port>`.
@@ -98,6 +100,7 @@ Remote debugging memungkinkan kita melakukan debug mode IGNSDK di browser atau d
 $ ignsdk -d -r 8080 ~/IGNSDK-APP/aplikasi-keren.ign
 ~~~
 Akses debugging mode lewat browser `http://ip-target:port` contoh `http://127.0.0.1:8080`
+
 ##Memaketkan Aplikasi
 Aplikasi berbasis IGN SDK dapat didistribusikan dengan berbagai cara. Cara yang paling mudah dan
 ringkas adalah dengan memaketkannya dalam bentuk **.deb** atau **.rpm**. Skrip yang akan digunakan
@@ -118,3 +121,42 @@ $ sudo yum install ~/rpmbuild/RPMS/noarch/aplikasi-keren.ign-1.0-ign9.noarch.rpm
 ~~~
 5. Setelah paket terpasang, akan muncul item menu bernama ***Aplikasi Keren***. Selanjutnya,
 aplikasi tersebut bisa dijalankan melalui menu.
+
+##Contoh Program
+###2.1 Spawn API
+**Javascript :**
+~~~javascript
+/*Import Module Sys dari IGNSDK runtime*/
+var sys = ign.sys();
+
+$(document).ready(function(){
+  $('#exec').click(function(){
+    /*Ambil isian perintah
+    dari text input id (#) "cmd"*/
+    var cmd = $('#cmd').val();
+    /*perintah di kirim ke runtime
+    IGNSDK untuk di eksekusi*/
+    sys.exec(cmd);
+    sys.out.connect(function(out){
+      /*stdout dari perintah ditulis
+      kedalam element id=out*/
+      $('#out').prepend(out+"<br>");
+    })
+  });
+
+  $('#kill').click(function(){
+    /*Hentikan proses*/
+    sys.kill();
+  });
+});
+~~~
+**HTML** :
+~~~html
+<body>
+  <input type="text" value="ping google.com" id="cmd">
+  <input type="submit" value="exec" id="exec">
+  <input type="submit" value="kill" id="kill"><br>
+  <div id="out"></div>
+</body>
+~~~
+

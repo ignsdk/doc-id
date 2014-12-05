@@ -51,3 +51,4 @@ Anda bisa menjalankan aplikasi tersebut dengan perintah:
 ~~~
 $ ignsdk -p ~/IGNSDK-APP/aplikasi-keren.ign
 ~~~
+<end>

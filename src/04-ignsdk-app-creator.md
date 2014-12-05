@@ -18,3 +18,4 @@ $ sudo yum install ~/rpmbuild/RPMS/noarch/aplikasi-keren.ign-1.0-ign9.noarch.rpm
 ~~~
 5. Setelah paket terpasang, akan muncul item menu bernama ***Aplikasi Keren***. Selanjutnya,
 aplikasi tersebut bisa dijalankan melalui menu.
+<end>
