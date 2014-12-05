@@ -90,7 +90,7 @@ $ ignsdk -d -p ~/IGNSDK-APP/aplikasi-keren.ign
 }
 ~~~
 
-<center>![Local Debugging](https://github.com/ignsdk/doc-id/raw/master/img/gb1.png)</center>
+![Local Debugging](https://github.com/ignsdk/doc-id/raw/master/img/gb1.png)
 
 ###1.2 Remote Debugging
 Remote debugging memungkinkan kita melakukan debug mode IGNSDK di browser atau device lain. Untuk mengaktifkan remote debugging cukup menambahkan parameter `-r <port>`.
