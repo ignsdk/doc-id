@@ -92,6 +92,12 @@ $ ignsdk -d -p ~/IGNSDK-APP/aplikasi-keren.ign
 }
 ~~~
 
+###1.2 Remote Debugging
+Remote debugging memungkinkan kita melakukan debug mode IGNSDK di browser atau device lain. Untuk mengaktifkan remote debugging cukup menambahkan parameter `-r <port>`.
+~~~
+$ ignsdk -d -r 8080 ~/IGNSDK-APP/aplikasi-keren.ign
+~~~
+Akses debugging mode lewat browser `http://ip-target:port` contoh `http://127.0.0.1:8080`
 
 ##Memaketkan Aplikasi
 Aplikasi berbasis IGN SDK dapat didistribusikan dengan berbagai cara. Cara yang paling mudah dan
