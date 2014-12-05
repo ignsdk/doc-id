@@ -87,7 +87,7 @@ $ ignsdk -d -p ~/IGNSDK-APP/aplikasi-keren.ign
     "config" : {
 		"debug" : true,
 		"websecurity" : true,
-		"name" : "Alat Bantu Forensik BBM"
+		"name" : "Aplikasi Keren"
     }
 }
 ~~~
