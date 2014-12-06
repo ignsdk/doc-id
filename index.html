@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>IGNSDK Quick Start by ignsdk</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/ignsdk/doc-id">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>IGNSDK Quick Start</h1>
+            <h2></h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/ignsdk/doc-id/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/ignsdk/doc-id/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h2>
+<a id="instalasi-ignsdk" class="anchor" href="#instalasi-ignsdk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalasi IGNSDK</h2>
+
+<p>Paket IGN SDK sudah dimasukkan secara default di IGOS Nusantara D9.1. Jika belum terpasang di
+sistem Anda, ikuti langkah-langkah berikut untuk memasang IGN SDK.</p>
+
+<ol>
+<li>Buka aplikasi Terminal</li>
+<li>Pasang paket bernama <code>ignsdk</code>. Paket ini berisi binari peluncur aplikasi yang digunakan untuk
+menjalankan aplikasi berbasis IGN SDK.</li>
+</ol>
+
+<pre><code>$ sudo yum install ignsdk
+</code></pre>
+
+<ol>
+<li>(Opsional) Pasang paket bernama <code>ignsdk-devtools</code>. Paket ini berisi alat bantu untuk membuat
+dan memaketkan aplikasi berbasis IGN SDK.</li>
+</ol>
+
+<pre><code>$ sudo yum install ignsdk-devtools
+</code></pre>
+
+<ol>
+<li>Testing</li>
+</ol>
+
+<pre><code>ignsdk -p /usr/share/ign-sdk/test/calculator.ign
+</code></pre>
+
+<h2>
+<a id="membuat-aplikasi-di-ignsdk" class="anchor" href="#membuat-aplikasi-di-ignsdk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Membuat Aplikasi di IGNSDK</h2>
+
+<p>Skrip IGN SDK Devtools membantu Anda untuk mulai membuat aplikasi berbasis IGN SDK dengan
+lebih mudah. Selain itu, skrip ini dapat memaketkan aplikasi buatan Anda kedalam bentuk berkas <strong>.deb</strong>
+(Debian, Ubuntu, LinuxMint, dll) serta <strong>.rpm</strong> (IGOS Nusantara, openSUSE). Sebelum menjalankan
+panduan ini, pastikan bahwa paket “ignsdk-devtools” sudah terpasang.</p>
+
+<ol>
+<li>Buka terminal</li>
+<li>Jalankan perintah dengan format <code>ignsdk-app-creator -p [namapaket]</code>. <strong>[namapaket]</strong> diisi
+dengan nama paket aplikasi yang akan Anda buat, hanya boleh berisi huruf kecil, angka, dan
+simbol – <strong><em>(dash)</em></strong>. Pastikan nama paket yang akan Anda buat tidak sama dengan nama paket lain
+yang sudah ada di repositori (misalnya gimp, apache, mysql, dsb.). Sebagai contoh, nama
+paketnya adalah <code>aplikasi-keren</code>.</li>
+</ol>
+
+<pre><code>$ ignsdk-app-creator -p aplikasi-keren
+</code></pre>
+
+<ol>
+<li>Setelahnya akan muncul isian nama aplikasi. Isikan dengan nama aplikasi yang akan Anda buat.
+Misalnya “Aplikasi Keren”.</li>
+</ol>
+
+<pre><code>Application name: Aplikasi Keren
+</code></pre>
+
+<ol>
+<li>Pada isian kategori, isikan nomor sesuai dengan kategori aplikasi Anda. Misalnya “Aplikasi
+Keren” adalah aplikasi pemutar musik, isikan dengan nomor 2 (Audio).</li>
+</ol>
+
+<pre><code>Choose one: 2
+</code></pre>
+
+<ol>
+<li>Selanjutnya, akan muncul isian versi paket. Isikan dengan 1.0.</li>
+</ol>
+
+<pre><code>Version [1.0]: 1.0
+</code></pre>
+
+<ol>
+<li>Untuk isian rilis paket, sesuaikan dengan kode rilis distro yang Anda pakai atau yang akan
+menjadi target instalasi. Untuk paket yang ditujukan bagi IGOS Nusantara D9.x, isi dengan
+“ign9”.</li>
+</ol>
+
+<pre><code>Release [1]: ign9
+</code></pre>
+
+<ol>
+<li>Pada isian lisensi, isikan dengan kode sesuai lisensi aplikasi Anda. Sebaiknya Anda memahami
+dengan jelas isi lisensi yang Anda pilih. <em>Default</em>-nya adalah MIT.</li>
+</ol>
+
+<pre><code>License [MIT/BSD/GPL2/GPL3/etc, default=MIT]: MIT
+</code></pre>
+
+<ol>
+<li>Isikan URL website aplikasi Anda (tanpa awalan http://) pada isian URL</li>
+</ol>
+
+<pre><code>URL [example.com]: ignsdk.web.id
+</code></pre>
+
+<ol>
+<li>Isikan deskripsi singkat aplikasi Anda pada isian Description.</li>
+</ol>
+
+<pre><code>Description: Aplikasi keren untuk memutar musik
+</code></pre>
+
+<ol>
+<li>Skrip akan membuat aplikasi baru di direktori <strong>/home/user/IGNSDK-APP/aplikasi-keren.ign</strong>.
+Anda bisa menjalankan aplikasi tersebut dengan perintah:</li>
+</ol>
+
+<pre><code>$ ignsdk -p ~/IGNSDK-APP/aplikasi-keren.ign
+</code></pre>
+
+<h2>
+<a id="debugging" class="anchor" href="#debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging</h2>
+
+<p>Saat proses development proses debugging ini memiliki peranan sangat penting untuk mengetahui proses yang dilakukan oleh aplikasi ignsdk yang sedang kita jalankan. Di IGNSDK debugging dibagi menjadi dua mode, local dubugging dan remote debugging.</p>
+
+<h3>
+<a id="11-local-debugging" class="anchor" href="#11-local-debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1 Local Debugging</h3>
+
+<p>Secara default local debugging IGNSDK bisa diaktifkan dengan 2 cara yaitu</p>
+
+<ul>
+<li>Cara 1 : menambahkan parameter -d saat menjalankan aplikasi IGNSDK</li>
+</ul>
+
+<pre><code>$ ignsdk -d -p ~/IGNSDK-APP/aplikasi-keren.ign
+</code></pre>
+
+<ul>
+<li>Cara 2 : Menambahkan object <code>debug</code> dengan value <code>true</code> pada berkas <code>ignsdk.json</code>
+</li>
+</ul>
+
+<div class="highlight highlight-json"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>config<span class="pl-pds">"</span></span> : {
+    <span class="pl-s1"><span class="pl-pds">"</span>debug<span class="pl-pds">"</span></span> : <span class="pl-c1">true</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>websecurity<span class="pl-pds">"</span></span> : <span class="pl-c1">true</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span> : <span class="pl-s1"><span class="pl-pds">"</span>Aplikasi Keren<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
+
+<p><img src="img/gb1.png" alt="Local Debugging"></p>
+
+<h3>
+<a id="12-remote-debugging" class="anchor" href="#12-remote-debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2 Remote Debugging</h3>
+
+<p>Remote debugging memungkinkan kita melakukan debug mode IGNSDK di browser atau device lain. Untuk mengaktifkan remote debugging cukup menambahkan parameter <code>-r &lt;port&gt;</code>.</p>
+
+<pre><code>$ ignsdk -d -r 8080 ~/IGNSDK-APP/aplikasi-keren.ign
+</code></pre>
+
+<p>Akses debugging mode lewat browser <code>http://ip-target:port</code> contoh <code>http://127.0.0.1:8080</code></p>
+
+<h2>
+<a id="memaketkan-aplikasi" class="anchor" href="#memaketkan-aplikasi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memaketkan Aplikasi</h2>
+
+<p>Aplikasi berbasis IGN SDK dapat didistribusikan dengan berbagai cara. Cara yang paling mudah dan
+ringkas adalah dengan memaketkannya dalam bentuk <strong>.deb</strong> atau <strong>.rpm</strong>. Skrip yang akan digunakan
+untuk memaketkan aplikasi adalah <code>ignsdk-app-builder</code>.
+1. Buka Terminal.
+2. Jalankan perintah dengan format “ignsdk-app-builder -p [namapaket]”. [namapaket]
+adalah nama paket aplikasi yang sudah Anda buat sebelumnya dan ada di direktori
+<code>/home/igos/IGNSDK-APP/</code>. Contohnya adalah <code>aplikasi-keren</code>.</p>
+
+<pre><code>$ ignsdk-app-builder -p aplikasi-keren
+</code></pre>
+
+<ol>
+<li>Sistem pemaketan akan memulai proses.</li>
+<li>Jika sudah selesai, maka paket berbentuk .rpm dengan nama <code>aplikasikeren.ign-1.0-ign9.noarch.rpm</code>
+bisa ditemukan di direktori
+<code>/home/igos/rpmbuild/RPMS/noarch/</code>. Coba pasang paket tersebut.</li>
+</ol>
+
+<pre><code>$ sudo yum install ~/rpmbuild/RPMS/noarch/aplikasi-keren.ign-1.0-ign9.noarch.rpm
+</code></pre>
+
+<ol>
+<li>Setelah paket terpasang, akan muncul item menu bernama <strong><em>Aplikasi Keren</em></strong>. Selanjutnya,
+aplikasi tersebut bisa dijalankan melalui menu.</li>
+</ol>
+
+<h2>
+<a id="contoh-program" class="anchor" href="#contoh-program" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contoh Program</h2>
+
+<h3>
+<a id="21-spawn-api" class="anchor" href="#21-spawn-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1 Spawn API</h3>
+
+<p><strong>Javascript :</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">/*Import Module Sys dari IGNSDK runtime*/</span>
+<span class="pl-s">var</span> sys <span class="pl-k">=</span> ign.sys();
+
+$(<span class="pl-s3">document</span>).ready(<span class="pl-st">function</span>(){
+  $(<span class="pl-s1"><span class="pl-pds">'</span>#exec<span class="pl-pds">'</span></span>).<span class="pl-s3">click</span>(<span class="pl-st">function</span>(){
+    <span class="pl-c">/*Ambil isian perintah</span>
+<span class="pl-c">    dari text input id (#) "cmd"*/</span>
+    <span class="pl-s">var</span> cmd <span class="pl-k">=</span> $(<span class="pl-s1"><span class="pl-pds">'</span>#cmd<span class="pl-pds">'</span></span>).val();
+    <span class="pl-c">/*perintah di kirim ke runtime</span>
+<span class="pl-c">    IGNSDK untuk di eksekusi*/</span>
+    sys.<span class="pl-s3">exec</span>(cmd);
+    sys.out.connect(<span class="pl-st">function</span>(<span class="pl-vpf">out</span>){
+      <span class="pl-c">/*stdout dari perintah ditulis</span>
+<span class="pl-c">      kedalam element id=out*/</span>
+      $(<span class="pl-s1"><span class="pl-pds">'</span>#out<span class="pl-pds">'</span></span>).prepend(out<span class="pl-k">+</span><span class="pl-s1"><span class="pl-pds">"</span>&lt;br&gt;<span class="pl-pds">"</span></span>);
+    })
+  });
+
+  $(<span class="pl-s1"><span class="pl-pds">'</span>#kill<span class="pl-pds">'</span></span>).<span class="pl-s3">click</span>(<span class="pl-st">function</span>(){
+    <span class="pl-c">/*Hentikan proses*/</span>
+    sys.kill();
+  });
+});</pre></div>
+
+<p><strong>HTML :</strong></p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">body</span>&gt;
+  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>ping google.com<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>cmd<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>exec<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>exec<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>kill<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>kill<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">br</span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>out<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">body</span>&gt;</pre></div>
+
+<h3>
+<a id="22-crud" class="anchor" href="#22-crud" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 CRUD</h3>
+
+<p><strong>Javascript :</strong></p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">//Import Module yang dibutuhkan</span>
+<span class="pl-s">var</span> fs <span class="pl-k">=</span> ign.filesystem();
+<span class="pl-s">var</span> sql <span class="pl-k">=</span> ign.sql();
+<span class="pl-c">//dama file database</span>
+<span class="pl-s">var</span> dbFile <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>coba.db<span class="pl-pds">"</span></span>;
+
+$(<span class="pl-s3">document</span>).ready(<span class="pl-st">function</span>(){
+    <span class="pl-c">//reference http://goo.gl/E0obMa</span>
+  <span class="pl-c">//Cek apakah file database sudah di buat</span>
+    <span class="pl-k">if</span>(fs<span class="pl-s3">.info</span>(dbFile).exists){
+    <span class="pl-c">//jika database sudah di buat, aplikasi akan langsung menjalankan fungsi load()</span>
+        sql.driver(<span class="pl-s1"><span class="pl-pds">"</span>sqlite<span class="pl-pds">"</span></span>, dbFile);
+        <span class="pl-s3">load</span>();
+    }
+    <span class="pl-k">else</span>{
+    <span class="pl-c">//jalankan fungsi setup DB jika database belum dibuat</span>
+        setupDb();
+    }
+});
+
+<span class="pl-st">function</span> <span class="pl-en">setupDb</span>(){
+  <span class="pl-c">//connect ke database</span>
+    sql.driver(<span class="pl-s1"><span class="pl-pds">"</span>sqlite<span class="pl-pds">"</span></span>, dbFile);
+  <span class="pl-c">//buat table user dengan field id,nama, dan umur</span>
+    sql.query(<span class="pl-s1"><span class="pl-pds">"</span>create table user(id INTEGER PRIMARY KEY AUTOINCREMENT,nama varchar(10), umur smallint)<span class="pl-pds">"</span></span>);
+}
+
+<span class="pl-st">function</span> <span class="pl-en">add</span>(){
+    <span class="pl-s">var</span> nama <span class="pl-k">=</span> $(<span class="pl-s1"><span class="pl-pds">"</span>#nama<span class="pl-pds">"</span></span>).val();
+    <span class="pl-s">var</span> umur <span class="pl-k">=</span> $(<span class="pl-s1"><span class="pl-pds">"</span>#umur<span class="pl-pds">"</span></span>).val();
+  <span class="pl-c">//query untuk menambah data ke database</span>
+    <span class="pl-s">var</span> add <span class="pl-k">=</span> sql.query(<span class="pl-s1"><span class="pl-pds">"</span>insert into user (nama,umur) values ('<span class="pl-pds">"</span></span><span class="pl-k">+</span>nama<span class="pl-k">+</span><span class="pl-s1"><span class="pl-pds">"</span>',<span class="pl-pds">"</span></span><span class="pl-k">+</span>umur<span class="pl-k">+</span><span class="pl-s1"><span class="pl-pds">"</span>)<span class="pl-pds">"</span></span>);
+    <span class="pl-s3">alert</span>(<span class="pl-s1"><span class="pl-pds">"</span>input berhasil status <span class="pl-pds">"</span></span><span class="pl-k">+</span>add.<span class="pl-sc">status</span>);
+}
+
+<span class="pl-st">function</span> <span class="pl-en">load</span>(){
+  <span class="pl-c">//query untuk mengambil data</span>
+    <span class="pl-s">var</span> loadData <span class="pl-k">=</span> sql.query(<span class="pl-s1"><span class="pl-pds">"</span>select * from user<span class="pl-pds">"</span></span>);
+    <span class="pl-s">var</span> html<span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+  <span class="pl-c">/*</span>
+<span class="pl-c">    struktur data yang di hasilkan oleh query</span>
+<span class="pl-c">    loadData:{ content:[....], status: true}</span>
+<span class="pl-c">  */</span>
+    loadData.<span class="pl-sc">content</span>.forEach(<span class="pl-st">function</span>(<span class="pl-vpf">data</span>){
+        html <span class="pl-k">+=</span> <span class="pl-s1"><span class="pl-pds">"</span>Nama : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> data.nama <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">"</span>&lt;br&gt;<span class="pl-pds">"</span></span>;
+        html <span class="pl-k">+=</span> <span class="pl-s1"><span class="pl-pds">"</span>Umur : <span class="pl-pds">"</span></span> <span class="pl-k">+</span> data.umur <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">"</span>&lt;br&gt;<span class="pl-pds">"</span></span>;
+        html <span class="pl-k">+=</span> <span class="pl-s1"><span class="pl-pds">"</span>&lt;a href='#' onclick='del(<span class="pl-pds">"</span></span><span class="pl-k">+</span>data.<span class="pl-sc">id</span><span class="pl-k">+</span><span class="pl-s1"><span class="pl-pds">"</span>)'&gt;Delete&lt;/a&gt;&lt;hr&gt;<span class="pl-pds">"</span></span>;
+    });
+    $(<span class="pl-s1"><span class="pl-pds">"</span>#out<span class="pl-pds">"</span></span>).html(html);
+}
+
+<span class="pl-st">function</span> <span class="pl-en">del</span>(<span class="pl-vpf">id</span>){
+  <span class="pl-c">//query untuk menghapus data</span>
+    <span class="pl-s">var</span> del <span class="pl-k">=</span> sql.query(<span class="pl-s1"><span class="pl-pds">"</span>delete from user where id=<span class="pl-pds">"</span></span><span class="pl-k">+</span>id);
+}</pre></div>
+
+<p><strong>HTML :</strong></p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s1"><span class="pl-pds">"</span>Nama<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>nama<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">br</span>&gt;
+&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">placeholder</span>=<span class="pl-s1"><span class="pl-pds">"</span>Umur<span class="pl-pds">"</span></span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>umur<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">br</span>&gt;
+&lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s1"><span class="pl-pds">"</span>submit<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s1"><span class="pl-pds">"</span>Tambah Data<span class="pl-pds">"</span></span> <span class="pl-e">onclick</span>=<span class="pl-s1"><span class="pl-pds">"</span>add()<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s1"><span class="pl-pds">"</span>out<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/ignsdk">ignsdk</a> can be found on <a href="https://github.com/ignsdk/doc-id">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
